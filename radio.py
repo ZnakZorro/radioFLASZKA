@@ -60,6 +60,20 @@ def show_post(radio_id):
    templateData = formatuj(result_success,'RADIO nr')
    return render_template('main.html', **templateData)
 
+@app.route("/prev")
+def prev():
+   command = "mpc prev"
+   result_success = str(subprocess.check_output([command], shell=True))
+   templateData = formatuj(result_success,'prev')
+   return render_template('main.html', **templateData)
+
+@app.route("/next")
+def next():
+   command = "mpc next"
+   result_success = str(subprocess.check_output([command], shell=True))
+   templateData = formatuj(result_success,'next')
+   return render_template('main.html', **templateData)
+
 
 
 if __name__ == "__main__":
