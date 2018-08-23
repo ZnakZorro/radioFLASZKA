@@ -1,0 +1,66 @@
+<html lang="pl"> 
+<head> 
+<meta charset="utf-8"> 
+	<title>{{ title }}</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1"> 
+	<meta name="mobile-web-app-capable" content="yes"> 
+
+	<style>
+		body,button {font:normal 12pt/20pt Verdana; margin:0.5em; padding:0.5em;}
+		button:focus {outline:0;}
+		p {margin:0.2em 0;}
+		a {text-decoration:none;}
+		a.btn {line-height:2.2rem; color:#444; background:#ddd; text-align:center; border-radius:0.6em;border:1px solid gray; padding:0.4em; margin:0.5em;}
+		@meda screen and (max-width: 640px){
+			body {margin:0.2em}
+		}
+	</style>
+
+	<script>
+		function $(id){return document.getElementById(id);}
+		function $$(sel) {return document.querySelectorAll(sel);} 		
+
+		document.addEventListener('DOMContentLoaded', function() {
+			console.log('DOM ready')
+		});	
+
+	</script>	
+	
+	
+</head> 
+
+
+   <body>
+      <h3>{{ title }}: {{ time }}</h3>
+ 
+
+	  <div>
+		<p>
+			<a class="btn" href="/" >/Start</a>
+			<a class="btn" href="/radio" >/info</a>
+			<a class="btn" href="/current" >/current</a>
+		</p>
+		<p>
+		
+		<a class="btn" href="/radio/1" >/radio/1</a>
+		<a class="btn" href="/radio/2" >/radio/2</a>
+		<a class="btn" href="/radio/3" >/radio/3</a>
+		<a class="btn" href="/radio/4" >/radio/4</a>
+		<a class="btn" href="/radio/5" >/radio/5</a>
+		<a class="btn" href="/radio/6" >/radio/6</a>
+		<a class="btn" href="/radio/7" >/radio/7</a>
+		<a class="btn" href="/radio/8" >/radio/8</a>
+		</p>
+	  </div>
+	  
+     <p>{{info}}</p>
+     <p>{{info2}}</p>
+     <p>{{info3}}</p>
+		<br /><br /><br /><br /><br />
+	  <div>
+		<p><a href="http://mattrichardson.com/Raspberry-Pi-Flask/" target="_blank">http://mattrichardson.com/Raspberry-Pi-Flask/</a></p>
+		<p><a href="http://flask.pocoo.org/docs/1.0/quickstart/" target="_blank">http://flask.pocoo.org/docs/1.0/quickstart/</a></p>
+		
+	  </div>
+   </body>
+</html>
