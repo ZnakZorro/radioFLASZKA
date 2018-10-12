@@ -1,6 +1,7 @@
 import RPi.GPIO as GPIO
 import threading
 from time import sleep
+import os
 
 Enc_A = 11
 Enc_B = 12
@@ -35,11 +36,12 @@ def rotary_resetF(C):
 	#licznik=0
 
 def rotary_resetR(C):
-	global licznik
 	print('klik Rising button')
-	print(licznik)
+	global licznik, Volume
 	licznik=0
-	print(licznik)
+	Volume=60
+	cmd = 'mpc volume '+str(Volume)
+	os.system(cmd)	
 	return
 
 def rotary_interrupt(A_or_B):
@@ -64,9 +66,9 @@ def rotary_interrupt(A_or_B):
 
 def main():
 	global Rotary_counter, LockRotary
-	global licznik
+	global licznik, Volume
 	licznik=0
-	Volume = 0
+	Volume = 60
 	NewCounter = 0
 	init()	
 	while True :
@@ -77,11 +79,14 @@ def main():
 		Rotary_counter = 0
 		LockRotary.release()					
 		if (NewCounter !=0):
-			Volume = Volume + NewCounter*abs(NewCounter)
+			Volume = Volume + 3*(NewCounter*abs(NewCounter))
 			if Volume < 0:
 				Volume = 0
 			if Volume > 100:
 				Volume = 100
 			print(NewCounter, Volume,licznik)
+			cmd = 'mpc volume '+str(Volume)
+			os.system(cmd)
+
 
 main()
