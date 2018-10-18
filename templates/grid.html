@@ -1,0 +1,107 @@
+<html lang="pl"> 
+<head> 
+<meta charset="utf-8"> 
+	<title>APP_mini</title> 
+	<meta name="viewport" content="width=device-width,initial-scale=1"> 
+	<meta name="mobile-web-app-capable" content="yes"> 
+	<link rel="icon" type="image/png" size="128x128" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACAAgMAAAC+UIlYAAAACVBMVEUAAAAAAAAAAACDY+nAAAAAAnRSTlMAgJsrThgAAADpSURBVFjD7dHBCQMxDERR70VFpJrUo2pURC5SlcEszkCEfwPruRn9wwOPv13vwbMYvNdn8Dz5flUxwqqCCVWM8KpkQjHCZhBMYITPIJHACLuDIAIj/A4SCIywFQQQEOErSCAQwhQEEADhChIIQgBBiEYQAghCNAIgRBACCEI0ghBAEAIIQjSCEEgQQgRGWA+iERDhPUggCAEEIUQAhAgNIQIgRGgIEQAhQkeIwAjbBSECI3wXpAiIsH0QIhDC90GKAAijIBaBEE5BLgIgjIOYBESIQN+xu87bCZ4brPcJTnCCE5zgfp/99gV7t1BMVMeE7wAAAABJRU5ErkJggg=="> 
+	<style>
+		* {box-sizing: border-box;}
+		body,button {font:normal 11pt Verdana; margin:0.5em; padding:0.5em;}
+		button:focus {outline:0;}
+		p {margin:0.2em 0;}
+		@media screen and (max-width: 640px){
+			body {margin:0.2em}
+		}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: #2196F3;
+  padding: 10px;
+}
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+  cursor:pointer;
+}
+
+
+.c1  {background:#007bff; color:#fff !important;}
+.c2  {background:#6610f2; color:#fff !important;}
+.c3  {background:#6f42c1; color:#fff !important;}
+.c4  {background:#e83e8c; color:#fff !important;}
+.c5  {background:#dc3545; color:#000 !important;}
+.c6  {background:#fd7e14; color:#fff !important;}
+.c7  {background:#ffc107; color:#000 !important;}
+.c8  {background:#28a745; color:#fff !important;}
+.c9  {background:#20c997; color:#000 !important;}
+.c10 {background:#17a2b8; color:#fff !important;}
+.c11 {background:#868e96; color:#fff !important;}
+.c12 {background:#343a40; color:#fff !important;}
+.c13 {background:#007bff; color:#fff !important;}
+.c14 {background:#868e96; color:#fff !important;}
+.c15 {background:#28a745; color:#fff !important;}
+.c16 {background:#17a2b8; color:#fff !important;}
+.c17 {background:#ffc107; color:#fff !important;}
+.c18 {background:#dc3545; color:#fff !important;}
+.c19 {background:#f8f9fa; color:#fff !important;}
+.c20 {background:#0b6e2f; color:#fff !important;}
+</style>
+
+	<script>
+   let menu =[
+      {title:"Meteo",link:"meteo.html"},
+      {title:"Tv",link:"https://www.wi.zut.edu.pl/tvinfo/xx/"},
+      {title:"Meteo",link:"meteo.html"},
+      {title:"Meteo",link:"meteo.html"},
+      {title:"Meteo",link:"meteo.html"},
+      {title:"Meteo",link:"meteo.html"},
+      {title:"Meteo",link:"meteo.html"},
+      {title:"Meteo",link:"meteo.html"},
+      {title:"Meteo",link:"meteo.html"}
+   ]
+		function $(id){return document.getElementById(id);}
+		function $$(sel) {return document.querySelectorAll(sel);} 		
+      let klawisz = function (that){
+         console.log(that);
+         console.log(that.target.id.split('-').pop());
+         let i = that.target.id.split('-').pop();
+         location.href=menu[i]['link'];
+      }
+		document.addEventListener('DOMContentLoaded', function() {
+			console.log('DOM ready')
+         let klawisze = $$('div.grid-container div');
+         console.log(klawisze)
+         klawisze.forEach(function(k,i){
+            k.innerHTML = menu[i]['title'];
+            k.id='id-'+i;
+            k.classList.add('c'+i);
+            k.addEventListener('click',klawisz,false);
+         });
+		});	
+
+	</script>	
+	
+</head>
+<body>
+
+
+
+<div class="grid-container">
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>  
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>  
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>  
+</div>
+
+</body>
+</html>
